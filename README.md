@@ -5,7 +5,7 @@
 
 - 🌱 I’m currently learning **Flutter, Dart, Python and Tensorflow**
 
-- 👨‍💻 All of my projects are available at [phibr0.github.io](phibr0.github.io)
+- 👨‍💻 All of my projects are available at [https://phibr0.giathub.io](https://phibr0.github.io)
 
 - 📫 How to reach me **bronzel.phillip@gmail.com**
 
