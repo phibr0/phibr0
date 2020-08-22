@@ -13,5 +13,5 @@
 
 <p align="center">
 <a href="https://stackoverflow.com/users/13290281" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/stackoverflow.svg" alt="13290281" height="30" width="30" /></a>
-<a href="https://instagram.com/ph1br0" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="ph1br0" height="30" width="30" /></a>
+<a href="https://instagram.com/ph1.br0" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="ph1.br0" height="30" width="30" /></a>
 </p>
