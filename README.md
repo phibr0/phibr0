@@ -6,7 +6,7 @@
 </a>
 
 <a href="https://github.com/phibr0/labelcheck">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=phibr0&repo=labelcheck&bg_color=45,a1ffce,faffd1t" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=phibr0&repo=labelcheck&bg_color=45,a1ffce,faffd1" />
 </a>
 
 
