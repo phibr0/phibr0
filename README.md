@@ -1,5 +1,5 @@
 <a href="https://github.com/phibr0/phibr0">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript,Swift,C++&langs_count=4" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript,Swift,C++&langs_count=4&bg_color=45,#3a6168,#89253e" />
 </a>
 <a href="https://github.com/phibr0/phibr0">
   <img align="center" src="https://github-readme-stats.vercel.app/api?username=phibr0&show_icons=true&line_height=27&count_private=true" alt="PhiBr0's GitHub Stats&theme=gradient" />
