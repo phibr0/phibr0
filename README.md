@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I'm Phillip Bronzel</h1>
 
 <a href="https://github.com/phibr0/phibr0">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript,Swift,c++&theme=gradient" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript,Swift,C++&theme=gradient" />
 </a>
 <a href="https://github.com/phibr0/phibr0">
   <img align="center" src="https://github-readme-stats.vercel.app/api?username=phibr0&show_icons=true&line_height=27&count_private=true" alt="PhiBr0's GitHub Stats&theme=gradient" />
