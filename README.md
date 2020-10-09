@@ -1,6 +1,6 @@
 <a href="https://github.com/phibr0/phibr0">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript,Swift,C++&langs_count=4&theme=onedark" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript,Swift,C++&langs_count=4" />
 </a>
 <a href="https://github.com/phibr0/phibr0">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=phibr0&show_icons=true&line_height=27&count_private=true&theme=onedark" alt="PhiBr0's GitHub Stats" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=phibr0&show_icons=true&line_height=27&count_private=true" alt="PhiBr0's GitHub Stats" />
 </a>
