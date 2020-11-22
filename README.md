@@ -3,5 +3,5 @@
 </a>
 
 <a href="https://github.com/phibr0/phibr0">
-  <img align="centerleft" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript,Swift,C++&langs_count=4" />
+  <img align="centerleft" src="https://github-readme-stats.vercel.app/api/top-langs/?username=phibr0&hide=JavaScript&langs_count=4" />
 </a>
