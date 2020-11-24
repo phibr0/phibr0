@@ -24,4 +24,4 @@
 
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=phibr0&show_icons=true&locale=en&layout=compact&hide=javascript" alt="phibr0" /></p>
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=phibr0&show_icons=true&locale=en" alt="phibr0" /></p>
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=phibr0&show_icons=true&locale=en&hide_rank=true" alt="phibr0" /></p>
