@@ -5,7 +5,7 @@
 💡 &nbsp; I like to explore new technologies and develop software solutions and quick hacks.\
 🌱 &nbsp;I'm on track for learning more about Artificial Intelligence and Pen Testing.\
 ✉️ &nbsp;You can shoot me an email at bronzel.phillip@gmail.com! I'll try to respond as soon as I can.\
-📝 &nbsp;Read my Notes here: https://notes.phibr0.de.
+📝 &nbsp;Read my Notes here: https://notes.phibr0.de [German].
 
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 
