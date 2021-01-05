@@ -1,12 +1,5 @@
 ## 👋 &nbsp;Hey there! I'm phibr0
 
-### 👨🏻‍💻 &nbsp;About Me
-
-💡 &nbsp; I like to explore new technologies and develop software solutions and quick hacks.\
-🌱 &nbsp;I'm on track for learning more about Artificial Intelligence and Pen Testing.\
-✉️ &nbsp;You can shoot me an email at bronzel.phillip@gmail.com! I'll try to respond as soon as I can.\
-📝 &nbsp;Read my Notes here: https://notes.phibr0.de [German].
-
 <img alt="Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif" align="right"/>
 
 ### 🛠 &nbsp;Tech Stack
@@ -34,13 +27,4 @@
   <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=phibr0&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
   <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=phibr0&layout=compact&langs_count=8&theme=algolia&hide=javascript"/>
 </a>
-</p>
-
-### 🤝🏻 &nbsp;Connect with Me
-
-<p align="center">
-<a href="https://www.phibr0.de"><img src="https://img.shields.io/badge/-phibr0.de-3423A6?style=flat&logo=Google-Chrome&logoColor=white"/></a>
-<a href="mailto:bronzel.phillip@gmail.com"><img src="https://img.shields.io/badge/-bronzel.phillip@gmail.de-D14836?style=flat&logo=Gmail&logoColor=white"/></a>
-<a href="https://instagram.com/ph1.br0"><img src="https://img.shields.io/badge/-@ph1.br0-E4405F?style=flat&logo=Instagram&logoColor=white"/></a>
-<a href="https://discord.gg"><img src="https://img.shields.io/badge/-Rythm[id]7887-7289DA?style=flat&logo=Discord&logoColor=white"/></a>
 </p>
