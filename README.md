@@ -20,6 +20,7 @@
 ![Android](https://img.shields.io/badge/-Android-05122A?style=flat&logo=android)&nbsp;
 ![Windows](https://img.shields.io/badge/-Windows-05122A?style=flat&logo=windows)&nbsp;
 
+<!--
 ### ⚙️ &nbsp;GitHub Analytics
 
 <p align="center">
@@ -28,3 +29,4 @@
   <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=phibr0&layout=compact&langs_count=8&theme=algolia&hide=javascript"/>
 </a>
 </p>
+-->
