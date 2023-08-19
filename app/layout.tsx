@@ -1,19 +1,22 @@
 import "@/styles/globals.css"
+
 import { Metadata } from "next"
 
-import { ThemeProvider } from "@/components/ThemeProvider"
 import { fontSans, fontSerif } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/ThemeProvider"
 
 export const metadata: Metadata = {
-  title: "Phillip's Space",
+  title: "phib.ro",
+  description: "code/design/notes",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
+  metadataBase: new URL("https://phib.ro/"),
 }
 
 interface RootLayoutProps {

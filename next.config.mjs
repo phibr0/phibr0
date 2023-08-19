@@ -5,8 +5,8 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['i.scdn.co'],
-  }
+    domains: ["i.scdn.co"],
+  },
 }
 
 export default nextConfig

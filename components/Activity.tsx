@@ -1,22 +1,22 @@
-import Image from "next/image"
-import { SpotifyService } from "spotify-now-playing"
+import Image from 'next/image';
+import { SpotifyService } from 'spotify-now-playing';
 
 export const WakatimeActivity: any = async () => {
   const wakatime = await fetch(
-    "https://wakatime.com/api/v1/users/current/heartbeats?date=" +
+    'https://wakatime.com/api/v1/users/current/heartbeats?date=' +
       new Date().toDateString(),
     {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: "Basic " + btoa(process.env.WAKATIME_SECRET!),
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa(process.env.WAKATIME_SECRET!),
       },
-    }
-  ).then((response) => response.json())
+    },
+  ).then((response) => response.json());
 
   const amCurrentlyCoding =
     new Date().getTime() -
       new Date(wakatime.data[wakatime.data.length - 1].created_at).getTime() <
-    1000 * 60 * 5
+    1000 * 60 * 5;
 
   if (amCurrentlyCoding) {
     return (
@@ -27,7 +27,7 @@ export const WakatimeActivity: any = async () => {
         </div>
         <p>Online</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -37,16 +37,16 @@ export const WakatimeActivity: any = async () => {
       </div>
       <p>Offline</p>
     </div>
-  )
-}
+  );
+};
 
 export const SpotifyActivity: any = async () => {
   const spotify = new SpotifyService(
-    "7d51447045af4ac295b04ba2a3c2ee76",
-    "a4cd4c513c024a308da72e22f8500ab3",
-    "AQAFiCpHqgqlZivIApsCVceQiuOujbZFqMZN9hMAWPiQJAhYpwL_owoFCDsfYdJX7qiFvUD2FYAyCoqn22TsmJBbBzOtMz_2iXd31OoWFrDopxaK0xdJkTPn3q_wiBUFEt8"
-  )
-  const song = await spotify.getCurrentSong()
+    '7d51447045af4ac295b04ba2a3c2ee76',
+    'a4cd4c513c024a308da72e22f8500ab3',
+    'AQAFiCpHqgqlZivIApsCVceQiuOujbZFqMZN9hMAWPiQJAhYpwL_owoFCDsfYdJX7qiFvUD2FYAyCoqn22TsmJBbBzOtMz_2iXd31OoWFrDopxaK0xdJkTPn3q_wiBUFEt8',
+  );
+  const song = await spotify.getCurrentSong();
 
   if (song) {
     return (
@@ -61,18 +61,18 @@ export const SpotifyActivity: any = async () => {
         />
         <div>
           <p className="mb-1 text-xs text-neutral-400">
-            {song.isPlaying ? "Currently listening to" : "Last song played"}
+            {song.isPlaying ? 'Currently listening to' : 'Last song played'}
           </p>
           <p className="hover:underline">
             <a href={song.url}>{song.title}</a>
           </p>
           <p>
             {Array.isArray(song.artists.name)
-              ? song.artists.name.join(", ")
+              ? song.artists.name.join(', ')
               : song.artists.name}
           </p>
         </div>
       </div>
-    )
+    );
   }
-}
+};
