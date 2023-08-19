@@ -4,7 +4,10 @@ import { Physics, useBox, usePlane, useSphere } from '@react-three/cannon';
 import { Canvas } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 
+
+
 import { Cursor, useDragConstraint } from './3d/Drag';
+
 
 function Scene() {
   return (
@@ -50,7 +53,7 @@ const Box = () => {
       <group ref={ref} {...bind} dispose={null}>
         <mesh castShadow>
           <boxGeometry args={[6, 3, 2]} />
-          <meshStandardMaterial color="grey" dithering />
+          <meshStandardMaterial color="grey" dithering={false} />
         </mesh>
       </group>
     </>
@@ -72,7 +75,7 @@ const Sphere = () => {
       <group ref={ref} {...bind} dispose={null}>
         <mesh castShadow>
           <sphereGeometry args={[1]} />
-          <meshStandardMaterial color="grey" dithering />
+          <meshStandardMaterial color="grey" dithering={false} />
         </mesh>
       </group>
     </>
@@ -94,7 +97,7 @@ const Cube = () => {
       <group ref={ref} {...bind} dispose={null}>
         <mesh castShadow>
           <boxGeometry args={[5, 5, 5]} />
-          <meshStandardMaterial color="grey" dithering />
+          <meshStandardMaterial color="grey" dithering={false} />
         </mesh>
       </group>
     </>
@@ -112,7 +115,7 @@ const Floor = () => {
     /* @ts-expect-error */
     <mesh ref={ref} receiveShadow>
       <planeGeometry args={[100, 100]} />
-      <meshStandardMaterial color="grey" roughness={1} dithering />
+      <meshStandardMaterial color="grey" roughness={1} dithering={false} />
     </mesh>
   );
 };
