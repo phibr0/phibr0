@@ -33,13 +33,16 @@ export default function IndexPage() {
             phib.ro
           </h1>
           <nav className="self-end animate-in fade-in-0 delay-1000">
-            <a href="#info">
-              <ul className="space-y-1 p-6 text-right text-sm lg:p-20 pointer-events-auto">
+            <ul className="p-6 text-right text-sm space-y-1 lg:p-20 pointer-events-auto">
+              <a href="#info" className='space-y-1'>
                 <li>about</li>
                 <li>projects</li>
                 <li>contact</li>
-              </ul>
-            </a>
+              </a>
+              <li>
+                <a href="/b">blog</a>
+              </li>
+            </ul>
           </nav>
         </header>
       </div>
