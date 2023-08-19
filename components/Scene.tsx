@@ -1,15 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { Debug, Physics, useBox, useCompoundBody, usePlane } from '@react-three/cannon';
-import { MeshReflectorMaterial, OrbitControls } from '@react-three/drei';
+import { Physics, useBox, usePlane } from '@react-three/cannon';
 import { Canvas } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 
-
-
 import { Cursor, useDragConstraint } from './3d/Drag';
-
 
 function Scene() {
   return (
@@ -52,7 +47,7 @@ const Cube = () => {
       <group ref={ref} {...bind} dispose={null}>
         <mesh castShadow>
           <boxGeometry args={[5, 5, 5]} />
-          <meshStandardMaterial color="grey" />
+          <meshStandardMaterial color="grey" dithering />
         </mesh>
       </group>
     </>
@@ -70,7 +65,7 @@ const Floor = () => {
     /* @ts-expect-error */
     <mesh ref={ref} receiveShadow>
       <planeGeometry args={[100, 100]} />
-      <meshStandardMaterial color="grey" roughness={0.5} />
+      <meshStandardMaterial color="grey" roughness={0.5} dithering />
     </mesh>
   );
 };
