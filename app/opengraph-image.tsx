@@ -14,8 +14,8 @@ export const size = {
 
 export const contentType = "image/png"
 
-const syne = fetch(new URL("./syne-variable.ttf", import.meta.url)).then(
-  (res) => res.arrayBuffer()
+const syne = fetch(new URL("/syne-variable.ttf", import.meta.url)).then((res) =>
+  res.arrayBuffer()
 )
 
 export default async function Image() {
