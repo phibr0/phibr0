@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import {
   GitHubLogoIcon,
   LinkedInLogoIcon,
@@ -7,15 +8,18 @@ import {
 
 import { SpotifyActivity, WakatimeActivity } from '@/components/Activity';
 import { Projects } from '@/components/Projects';
-import { Provider } from '@/components/Scene';
 import { CurrentWeather } from '@/components/Weather';
+
+const Scene = dynamic(() => import('@/components/Scene'));
 
 export default function IndexPage() {
   return (
     <>
       <div className="relative">
         <div className="inset-0 absolute">
-          <Provider />
+          <Suspense>
+            <Scene />
+          </Suspense>
         </div>
         <header className="grid z-10 relative pointer-events-none h-[100dvh] grid-cols-2 grid-rows-3 transition-all">
           <div className="space-y-4 p-6 lg:p-20 row-[1] col-span-2 lg:row-span-2 lg:col-[1]">
