@@ -1,18 +1,22 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/server';
 
-export const runtime = 'edge'
 
-export const alt = 'phibr0.dev'
+
+
+
+export const runtime = "edge"
+
+export const alt = "phib.ro"
 export const size = {
   width: 1200,
   height: 630,
 }
 
-export const contentType = 'image/png'
+export const contentType = "image/png"
 
-const syne = fetch(
-  new URL('./syne-variable.ttf', import.meta.url)
-).then((res) => res.arrayBuffer())
+const syne = fetch(new URL("./syne-variable.ttf", import.meta.url)).then(
+  (res) => res.arrayBuffer()
+)
 
 export default async function Image() {
   return new ImageResponse(
@@ -20,25 +24,25 @@ export default async function Image() {
       <div
         style={{
           fontSize: 128,
-          background: 'black',
+          background: "black",
           color: "white",
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'end',
-          justifyContent: 'start',
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "end",
+          justifyContent: "start",
         }}
       >
-        phibr0.dev
+        phib.ro
       </div>
     ),
     {
       ...size,
       fonts: [
         {
-          name: 'Syne',
+          name: "Syne",
           data: await syne,
-          style: 'normal',
+          style: "normal",
           weight: 400,
         },
       ],

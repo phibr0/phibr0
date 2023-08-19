@@ -18,7 +18,7 @@ export default function IndexPage() {
 
         </div>
         <h1 className="self-end p-6 font-serif text-3xl font-bold lg:p-20 lg:text-5xl">
-          phibr0.dev
+          phib.ro
         </h1>
         <nav className="self-end animate-in fade-in-0 delay-1000">
           <a href="#info">
