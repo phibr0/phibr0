@@ -34,6 +34,7 @@
     "framer-motion": "^10.16.0",
     "framer-motion-3d": "^10.16.0",
     "framer-motion-ticker": "^1.0.19",
+    "geist": "^1.0.0",
     "graphql-request": "^6.1.0",
     "lucide-react": "0.268.0",
     "markdown-wasm": "^1.2.0",
