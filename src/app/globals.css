@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background: rgba(0, 255, 200, 0.25);
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1.2s;
+}
+
+.shiki {
+  background-color: transparent !important;
+}
