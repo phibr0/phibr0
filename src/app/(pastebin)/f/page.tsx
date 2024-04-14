@@ -1,16 +1,18 @@
 'use client';
 
 import { codeToHtml, bundledLanguagesInfo } from 'shikiji';
-import { CreateButton } from '@/components/common/CreateButton';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { createFile } from './createFile';
 import { createHash, encryptText, generateKey } from './crypto';
+import { Button, Select, Spinner, TextArea } from '@radix-ui/themes';
+import { FilePlusIcon } from '@radix-ui/react-icons';
 
 export default function PasteBin() {
   const [text, setText] = useState('');
   const [lang, setLanguage] = useState('tsx');
   const router = useRouter();
+  const [pending, startTransition] = useTransition();
 
   const submitFile = async () => {
     const [hash, key, highlightedCode] = await Promise.all([
@@ -49,30 +51,37 @@ export default function PasteBin() {
             className="flex relative z-10 flex-col items-center gap-4"
             onSubmit={async (e) => {
               e.preventDefault();
-              await submitFile();
+              startTransition(async () => await submitFile());
             }}
           >
-            <textarea
+            <TextArea
               name="code"
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Paste your code here"
-              className="px-2 py-2 rounded-sm min-w-[600px] max-w-full min-h-[800px] border resize font-mono border-neutral-700 shadow-sm bg-neutral-900 outline-none"
+              className="font-mono min-w-[600px] max-w-full min-h-[800px] resize"
             />
             <div className="flex gap-2 items-center">
-              <select
-                name="language"
-                value={lang}
-                onChange={(e) => setLanguage(e.target.value)}
-                className="p-1.5 h-[34px] rounded-sm outline-none bg-neutral-900 border-neutral-700 border hover:bg-neutral-800 transition-all"
+              <Select.Root
+                defaultValue="typescript"
+                onValueChange={(value) => setLanguage(value)}
               >
-                {bundledLanguagesInfo.map((lang) => (
-                  <option key={lang.id} value={lang.id}>
-                    {lang.name ?? lang.id}
-                  </option>
-                ))}
-              </select>
-              <CreateButton />
+                <Select.Trigger />
+                <Select.Content>
+                  {bundledLanguagesInfo.map((lang) => (
+                    <Select.Item key={lang.id} value={lang.id}>
+                      {lang.name ?? lang.id}
+                    </Select.Item>
+                  ))}
+                </Select.Content>
+              </Select.Root>
+
+              <Button disabled={pending}>
+                <Spinner loading={pending}>
+                  <FilePlusIcon />
+                </Spinner>
+                Create
+              </Button>
             </div>
           </form>
         </div>

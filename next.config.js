@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   optimizeFonts: true,
   experimental: {
-    ppr: true,
     taint: true,
   },
   compress: true,

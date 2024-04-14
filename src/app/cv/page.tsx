@@ -7,14 +7,9 @@ import {
   ImageIcon,
 } from '@radix-ui/react-icons';
 import Link from 'next/link';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/common/Tooltip';
 import { ClientOnly } from '@/components/common/ClientOnly';
 import { MotionA } from '@/lib/framer-motion';
+import { Tooltip } from '@radix-ui/themes';
 
 export default async function Page() {
   return (
@@ -58,93 +53,67 @@ export default async function Page() {
           <div>
             <h2 className="font-medium">Contact & Socials</h2>
 
-            <TooltipProvider>
-              <div className="mt-4 flex gap-4">
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://github.com/phibr0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <GitHubLogoIcon
-                        width={20}
-                        height={20}
-                        aria-label="GitHub"
-                      />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    GitHub
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://linkedin.com/in/phibr0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <LinkedInLogoIcon
-                        width={20}
-                        height={20}
-                        aria-label="LinkedIn"
-                      />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    LinkedIn
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://twitter.com/phibr0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <TwitterLogoIcon
-                        width={20}
-                        height={20}
-                        aria-label="Twitter"
-                      />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    Twitter
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://bsky.app/profile/phib.ro"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <ImageIcon width={20} height={20} aria-label="Bluesky" />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    Bluesky
-                  </TooltipContent>
-                </Tooltip>
+            <div className="mt-4 flex gap-4">
+              <Tooltip content="GitHub">
+                <Link
+                  href="https://github.com/phibr0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <GitHubLogoIcon width={20} height={20} aria-label="GitHub" />
+                </Link>
+              </Tooltip>
+              <Tooltip content="LinkedIn">
+                <Link
+                  href="https://linkedin.com/in/phibr0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <LinkedInLogoIcon
+                    width={20}
+                    height={20}
+                    aria-label="LinkedIn"
+                  />
+                </Link>
+              </Tooltip>
+              <Tooltip content="Twitter">
+                <Link
+                  href="https://twitter.com/phibr0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <TwitterLogoIcon
+                    width={20}
+                    height={20}
+                    aria-label="Twitter"
+                  />
+                </Link>
+              </Tooltip>
+              <Tooltip content="BlueSky">
+                <Link
+                  href="https://bsky.app/profile/phib.ro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <ImageIcon width={20} height={20} aria-label="Bluesky" />
+                </Link>
+              </Tooltip>
 
-                <ClientOnly>
-                  <MotionA
-                    href="mailto:contact@phib.ro"
-                    className="text-neutral-500 hover:text-neutral-400"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                  >
-                    contact@phib.ro
-                  </MotionA>
-                </ClientOnly>
-              </div>
-            </TooltipProvider>
+              <ClientOnly>
+                <MotionA
+                  href="mailto:contact@phib.ro"
+                  className="text-neutral-500 hover:text-neutral-400"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  contact@phib.ro
+                </MotionA>
+              </ClientOnly>
+            </div>
           </div>
         </div>
         <div className="shrink-0 lg:size-80 rotate-6">

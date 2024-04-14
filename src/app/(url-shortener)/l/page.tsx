@@ -3,7 +3,9 @@ import { kv } from '@vercel/kv';
 import dynamic from 'next/dynamic';
 import { redirect } from 'next/navigation';
 import { SuspenseErrorBoundary } from '@/components/common/SuspenseErrorBoundary';
-import { CreateButton } from '@/components/common/CreateButton';
+import { Button, TextField } from '@radix-ui/themes';
+import { FilePlusIcon, Link1Icon } from '@radix-ui/react-icons';
+import { ActionButton } from '@/components/common/ActionButton';
 
 const Scene = dynamic(() => import('@/components/three/Scene'), { ssr: false });
 
@@ -21,7 +23,6 @@ const createHash = async (text: string) => {
 const createLink = async (formData: FormData) => {
   'use server';
   const url = formData.get('url')?.toString();
-  console.log(formData);
   if (!url) return 'Invalid URL';
   const hash = await createHash(url);
   const shortLink = hash.slice(0, 5);
@@ -51,13 +52,18 @@ export default async function CreateShortLink() {
               action={createLink}
               className="flex relative z-10 flex-col items-center gap-4"
             >
-              <input
+              <TextField.Root
                 name="url"
                 type="url"
-                placeholder="Enter URL"
-                className="px-2 py-2 rounded-sm border border-neutral-700 shadow-sm bg-neutral-900 outline-none w-[320px]"
-              />
-              <CreateButton />
+                key="url"
+                placeholder="Paste URL"
+                className="w-[320px]"
+              >
+                <TextField.Slot>
+                  <Link1Icon height="16" width="16" />
+                </TextField.Slot>
+              </TextField.Root>
+              <ActionButton icon={<FilePlusIcon />}>Create</ActionButton>
             </form>
           </div>
         </div>

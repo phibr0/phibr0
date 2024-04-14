@@ -1,7 +1,8 @@
-"use server";
+'use server';
 
-import { kv } from "@vercel/kv";
+import { kv } from '@vercel/kv';
 
 export const createFile = async (hash: string, cypherText: string) => {
-	await kv.set(hash, cypherText);
+  await kv.set(hash, cypherText);
+  await kv.get(hash);
 };

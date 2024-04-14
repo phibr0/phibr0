@@ -1,13 +1,15 @@
 import './globals.css';
+import '@radix-ui/themes/styles.css';
 import { Metadata } from 'next';
+import { Theme } from '@radix-ui/themes';
 import { fontMono, fontSans, fontSerif } from '@/lib/fonts';
 import { cn } from '@/lib/cn';
 
 export const metadata: Metadata = {
   title: 'you@phib.ro $_',
-  // icons: {
-  //   icon: '/favicon.png',
-  // },
+  icons: {
+    icon: '/favicon.png',
+  },
   metadataBase: new URL('https://phib.ro/'),
 };
 
@@ -28,9 +30,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontMono.variable
           )}
         >
-          <div className="relative flex min-h-screen flex-col">
-            <div className="flex-1">{children}</div>
-          </div>
+          <Theme accentColor="jade" appearance="dark" radius="small">
+            <div className="relative flex min-h-screen flex-col">
+              <div className="flex-1">{children}</div>
+            </div>
+          </Theme>
         </body>
       </html>
     </>

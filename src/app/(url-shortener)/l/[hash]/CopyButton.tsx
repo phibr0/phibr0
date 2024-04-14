@@ -1,23 +1,20 @@
-"use client";
+'use client';
 
-import React from "react";
+import { Button } from '@radix-ui/themes';
+import React from 'react';
 
 export const CopyButton = ({
-	text,
-	children,
-	className,
+  text,
+  children,
+  className,
 }: {
-	text: string;
-	children?: React.ReactNode;
-	className?: string;
+  text: string;
+  children?: React.ReactNode;
+  className?: string;
 }) => {
-	return (
-		<button
-			type="button"
-			className={className}
-			onClick={() => navigator.clipboard.writeText(text)}
-		>
-			{children}
-		</button>
-	);
+  return (
+    <Button variant="ghost" onClick={() => navigator.clipboard.writeText(text)}>
+      {children}
+    </Button>
+  );
 };

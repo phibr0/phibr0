@@ -4,6 +4,8 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CopyButton } from './CopyButton';
+import { Button } from '@radix-ui/themes';
+import { CopyIcon, GlobeIcon } from '@radix-ui/react-icons';
 
 const Scene = dynamic(() => import('@/components/three/Scene'), { ssr: false });
 
@@ -40,19 +42,16 @@ export default async function ShortLinkInfo({
               </span>
             </h1>
 
-            <div className="flex gap-2 items-center">
-              <CopyButton
-                className="px-4 py-1 rounded-sm bg-neutral-900 border-neutral-700 border hover:bg-neutral-800 transition-all"
-                text={`https://phib.ro/${hash}`}
-              >
+            <div className="flex gap-6 items-center">
+              <CopyButton text={`https://phib.ro/${hash}`}>
+                <CopyIcon />
                 Copy Link
               </CopyButton>
-              <Link
-                href={`/${hash}`}
-                className="px-4 py-1 rounded-sm bg-neutral-900 border-neutral-700 border hover:bg-neutral-800 transition-all"
-              >
-                Visit
-              </Link>
+              <Button asChild variant="ghost">
+                <Link href={`/${hash}`}>
+                  <GlobeIcon /> Visit
+                </Link>
+              </Button>
             </div>
 
             <div className="absolute flex justify-center bottom-16 left-0 right-0 font-mono tabular-nums text-sm text-neutral-500">

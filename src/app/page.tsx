@@ -1,10 +1,4 @@
 import { SuspenseErrorBoundary } from '@/components/common/SuspenseErrorBoundary';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/common/Tooltip';
 import { Projects } from '@/components/widgets/Projects';
 import { Spotify } from '@/components/widgets/Spotify';
 import { Status } from '@/components/widgets/Status';
@@ -16,6 +10,7 @@ import {
   LinkedInLogoIcon,
   TwitterLogoIcon,
 } from '@radix-ui/react-icons';
+import { Tooltip } from '@radix-ui/themes';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
@@ -118,103 +113,56 @@ export default function IndexPage() {
               <a href="mailto:hello@phib.ro">hello@phib.ro</a> or via my
               socials:
             </p>
-            <TooltipProvider>
-              <div className="mt-4 flex gap-4">
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://github.com/phibr0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <GitHubLogoIcon
-                        width={20}
-                        height={20}
-                        aria-label="GitHub"
-                      />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    GitHub
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://linkedin.com/in/phibr0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <LinkedInLogoIcon
-                        width={20}
-                        height={20}
-                        aria-label="LinkedIn"
-                      />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    LinkedIn
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://twitter.com/phibr0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <TwitterLogoIcon
-                        width={20}
-                        height={20}
-                        aria-label="Twitter"
-                      />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    Twitter
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Link
-                      href="https://bsky.app/profile/phib.ro"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-400"
-                    >
-                      <ImageIcon width={20} height={20} aria-label="Bluesky" />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent
-                    sideOffset={8}
-                    side="right"
-                    className="flex flex-col"
-                  >
-                    <span>Bluesky</span>
-                    <span className="mb-1 text-xs text-neutral-400">
-                      Need an invite code?
-                    </span>
-
-                    <ul>
-                      {[
-                        'bsky-social-xmm3c-gdq6y',
-                        'bsky-social-enbo3-l7yfe',
-                        'bsky-social-nrdec-s72hw',
-                        'bsky-social-pzvnk-vlrrr',
-                        'bsky-social-dkrbc-xo5ku',
-                      ].map((key) => (
-                        <li key={key} className="select-all text-xs font-mono">
-                          {key}
-                        </li>
-                      ))}
-                    </ul>
-                  </TooltipContent>
-                </Tooltip>
-              </div>
-            </TooltipProvider>
+            <div className="mt-4 flex gap-4">
+              <Tooltip content="GitHub">
+                <Link
+                  href="https://github.com/phibr0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <GitHubLogoIcon width={20} height={20} aria-label="GitHub" />
+                </Link>
+              </Tooltip>
+              <Tooltip content="LinkedIn">
+                <Link
+                  href="https://linkedin.com/in/phibr0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <LinkedInLogoIcon
+                    width={20}
+                    height={20}
+                    aria-label="LinkedIn"
+                  />
+                </Link>
+              </Tooltip>
+              <Tooltip content="Twitter">
+                <Link
+                  href="https://twitter.com/phibr0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <TwitterLogoIcon
+                    width={20}
+                    height={20}
+                    aria-label="Twitter"
+                  />
+                </Link>
+              </Tooltip>
+              <Tooltip content="BlueSky">
+                <Link
+                  href="https://bsky.app/profile/phib.ro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-500 hover:text-neutral-400"
+                >
+                  <ImageIcon width={20} height={20} aria-label="Bluesky" />
+                </Link>
+              </Tooltip>
+            </div>
           </div>
         </div>
         <span

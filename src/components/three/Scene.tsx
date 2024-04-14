@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Physics, useBox, usePlane, useSphere } from "@react-three/cannon";
-import { Canvas } from "@react-three/fiber";
-import { motion } from "framer-motion-3d";
+import { Physics, useBox, usePlane, useSphere } from '@react-three/cannon';
+import { Canvas } from '@react-three/fiber';
+import { motion } from 'framer-motion-3d';
 
 function Scene() {
   return (
@@ -111,7 +111,7 @@ const Cube = () => {
 
 const Floor = () => {
   const [ref] = usePlane(() => ({
-    type: "Static",
+    type: 'Static',
     position: [0, 0, 0],
     rotation: [-Math.PI / 2, 0, 0],
   }));
@@ -130,7 +130,7 @@ export default function Provider() {
     <Canvas
       frameloop="demand"
       shadows
-      style={{ pointerEvents: "none" }}
+      style={{ pointerEvents: 'none' }}
       camera={{ position: [-40, 40, 40], fov: 25, near: 1, far: 100 }}
     >
       <Physics allowSleep gravity={[0, -200, 0]}>

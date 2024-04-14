@@ -2,14 +2,14 @@
 
 import { transition } from '@/lib/transition';
 import { useRouter } from 'next/navigation';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { decryptText, importKey } from '../crypto';
 
 export const Renderer = ({ cypher }: { cypher: string }) => {
   const ref = useRef<HTMLPreElement>(null);
   const { push } = useRouter();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const fn = async () => {
       try {
         const url = new URL(window.location.href);
@@ -21,7 +21,8 @@ export const Renderer = ({ cypher }: { cypher: string }) => {
           ref.current.innerHTML = decrypted;
         });
       } catch (error) {
-        push('/blocked');
+        if (!ref.current) return;
+        ref.current.innerHTML = 'Invalid Key';
       }
     };
     fn();
