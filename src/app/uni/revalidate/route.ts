@@ -12,11 +12,7 @@ export const POST = async (req: NextRequest) => {
       .update(await req.text())
       .digest('hex');
 
-  const signature = headers().get('x-hub-signature');
-
-  console.log({ expectedSignature, signature });
-
-  if (signature !== expectedSignature) {
+  if (headers().get('x-hub-signature') !== expectedSignature) {
     return new Response('Invalid signature', { status: 401 });
   }
 
