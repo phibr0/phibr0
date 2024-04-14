@@ -1,13 +1,12 @@
-import { PropsWithChildren } from 'react';
-import { Html } from '@react-email/html';
-import { Head } from '@react-email/head';
-import { Tailwind } from '@react-email/tailwind';
+import { PropsWithChildren } from "react";
+import { Head, Html } from "@react-email/components";
+import { Tailwind } from "@react-email/tailwind";
 
 export const Mail = ({ children }: PropsWithChildren) => (
-  <Tailwind>
-    <Html lang="en">
-      <Head />
-      {children}
-    </Html>
-  </Tailwind>
+	<Tailwind>
+		<Html lang="en">
+			<Head />
+			{children}
+		</Html>
+	</Tailwind>
 );

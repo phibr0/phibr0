@@ -1,8 +1,8 @@
-import { auth, signIn } from '@/lib/auth';
+import { auth, signIn } from "@/lib/auth";
 
 export default async function SignIn() {
-  const session = await auth();
-  if (!session) return null;
+	const session = await auth();
+	if (!session) return null;
 
-  return <div>{session?.user?.email}</div>;
+	return <div>{session?.user?.email}</div>;
 }

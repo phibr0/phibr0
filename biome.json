@@ -4,12 +4,7 @@
 		"enabled": true
 	},
 	"files": {
-		"ignore": [
-			"node_modules/**/*",
-			"dist/**/*",
-			".next/**/*",
-			"**/*.d.ts"
-		]
+		"ignore": ["node_modules/**/*", "dist/**/*", ".next/**/*", "**/*.d.ts"]
 	},
 	"formatter": {
 		"enabled": true,

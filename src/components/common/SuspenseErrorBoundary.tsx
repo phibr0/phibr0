@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { PropsWithChildren, Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import { PropsWithChildren, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 export const SuspenseErrorBoundary = ({
-  children,
-  fallback,
+	children,
+	fallback,
 }: PropsWithChildren<{
-  fallback?: React.ReactNode;
+	fallback?: React.ReactNode;
 }>) => (
-  <ErrorBoundary fallback={null}>
-    <Suspense fallback={fallback ?? <div />}>{children}</Suspense>
-  </ErrorBoundary>
+	<ErrorBoundary fallback={null}>
+		<Suspense fallback={fallback ?? <div />}>{children}</Suspense>
+	</ErrorBoundary>
 );
