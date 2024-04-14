@@ -3,10 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   optimizeFonts: true,
   experimental: {
-    ppr: true,
     taint: true,
     serverComponentsExternalPackages: ['shiki', 'vscode-oniguruma'],
-    esmExternals: 'loose',
   },
   compress: true,
   poweredByHeader: false,
