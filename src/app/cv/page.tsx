@@ -1,133 +1,47 @@
-import Image from "next/image";
-import Picture from "./me.jpg";
-import {
-	GitHubLogoIcon,
-	LinkedInLogoIcon,
-	TwitterLogoIcon,
-	ImageIcon,
-} from "@radix-ui/react-icons";
-import Link from "next/link";
-import { ClientOnly } from "@/components/common/ClientOnly";
-import { MotionA } from "@/lib/framer-motion";
-import { Tooltip } from "@radix-ui/themes";
+'use client';
 
-export default async function Page() {
-	return (
-		<div className="max-w-screen-md text-pretty mx-auto px-6 py-8 lg:py-32 w-full">
-			<div className="flex flex-col-reverse gap-8 lg:flex-row lg:justify-between">
-				<div className="space-y-6">
-					<div className="space-y-4">
-						<h1 className="text-xl font-medium text-center lg:text-left">
-							Phillip Bronzel
-						</h1>
-						<p className="text-neutral-400">
-							I am Phillip, a student & software engineer from Germany. My main
-							focus of expertise is the frontend, primarily using modern React &
-							Typescript, but I have also been enjoying Rust in my free time and
-							on personal projects.
-						</p>
-					</div>
+import '@ungap/with-resolvers';
+import { useState } from 'react';
+import Turnstile, { useTurnstile } from 'react-turnstile';
+import { Document, Page } from 'react-pdf';
+import { pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/TextLayer.css';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
 
-					<div className="space-y-4">
-						<h2 className="font-medium">Projects</h2>
-					</div>
+pdfjs.GlobalWorkerOptions.workerSrc =
+  typeof window === 'undefined'
+    ? ''
+    : `${window.location.origin}/pdf.worker.min.mjs`;
 
-					<div className="space-y-4">
-						<h2 className="font-medium">Experience</h2>
+export default function CVPage() {
+  const [pdf, setPdf] = useState<ArrayBuffer | null>(null);
+  const turnstile = useTurnstile();
 
-						<ul className="pl-6 text-neutral-400 list-disc">
-							<li>
-								<h3>Frontend Engineer @ Nindo</h3>
-								<p>
-									Building an interactive Analytics Platform for Social Media
-									and Marketing Agencies
-								</p>
-							</li>
-							<li>
-								<h3>CS @ Technical University Dortmund</h3>
-								<p>Currently enrolled in the fourth semester.</p>
-							</li>
-						</ul>
-					</div>
-
-					<div>
-						<h2 className="font-medium">Contact & Socials</h2>
-
-						<div className="mt-4 flex gap-4">
-							<Tooltip content="GitHub">
-								<Link
-									href="https://github.com/phibr0"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="text-neutral-500 hover:text-neutral-400"
-								>
-									<GitHubLogoIcon width={20} height={20} aria-label="GitHub" />
-								</Link>
-							</Tooltip>
-							<Tooltip content="LinkedIn">
-								<Link
-									href="https://linkedin.com/in/phibr0"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="text-neutral-500 hover:text-neutral-400"
-								>
-									<LinkedInLogoIcon
-										width={20}
-										height={20}
-										aria-label="LinkedIn"
-									/>
-								</Link>
-							</Tooltip>
-							<Tooltip content="Twitter">
-								<Link
-									href="https://twitter.com/phibr0"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="text-neutral-500 hover:text-neutral-400"
-								>
-									<TwitterLogoIcon
-										width={20}
-										height={20}
-										aria-label="Twitter"
-									/>
-								</Link>
-							</Tooltip>
-							<Tooltip content="BlueSky">
-								<Link
-									href="https://bsky.app/profile/phib.ro"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="text-neutral-500 hover:text-neutral-400"
-								>
-									<ImageIcon width={20} height={20} aria-label="Bluesky" />
-								</Link>
-							</Tooltip>
-
-							<ClientOnly>
-								<MotionA
-									href="mailto:contact@phib.ro"
-									className="text-neutral-500 hover:text-neutral-400"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1 }}
-								>
-									contact@phib.ro
-								</MotionA>
-							</ClientOnly>
-						</div>
-					</div>
-				</div>
-				<div className="shrink-0 lg:size-80 rotate-6">
-					<Image
-						src={Picture}
-						priority
-						alt="Picture of me"
-						placeholder="blur"
-						className="rounded-full mx-auto lg:mx-0"
-						width={224}
-						height={224}
-					/>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="grid place-items-center size-full min-h-screen">
+      {!pdf ? (
+        <Turnstile
+          // biome-ignore lint/style/noNonNullAssertion: needs to be inlined
+          sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_ID!}
+          onVerify={async (token) => {
+            const response = await fetch('/cv/verify', {
+              method: 'POST',
+              body: JSON.stringify({ token }),
+            });
+            if (!response.ok) turnstile.reset();
+            const buffer = await response.arrayBuffer();
+            setPdf(buffer);
+          }}
+        />
+      ) : (
+        <Document
+          file={pdf}
+          className="overflow-clip rounded-md m-4 animate-in"
+          loading={<div />}
+        >
+          <Page pageNumber={1} scale={1.4} />
+        </Document>
+      )}
+    </div>
+  );
 }

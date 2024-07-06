@@ -80,10 +80,8 @@ function fromEntries(entries: Iterable<[string, string]>) {
     if (output[key] === undefined) {
       output[key] = value;
     } else if (Array.isArray(output[key])) {
-      // @ts-expect-error
       output[key].push(value);
     } else {
-      // @ts-expect-error
       output[key] = [output[key], value];
     }
   }

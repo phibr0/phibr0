@@ -1,15 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  optimizeFonts: true,
+  serverExternalPackages: ['shiki', 'vscode-oniguruma'],
   experimental: {
     taint: true,
-    serverComponentsExternalPackages: ['shiki', 'vscode-oniguruma'],
+    reactCompiler: true,
+    turbo: {
+      resolveAlias: {
+        canvas: './empty-module.ts',
+      },
+    },
   },
   compress: true,
   poweredByHeader: false,
   images: {
     remotePatterns: [{ hostname: 'i.scdn.co' }],
+  },
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+    return config;
   },
 };
 
