@@ -3,6 +3,7 @@ import { Projects } from '@/components/widgets/Projects';
 import { Spotify } from '@/components/widgets/Spotify';
 import { Status } from '@/components/widgets/Status';
 import { Weather } from '@/components/widgets/Weather';
+import { Timezone } from '@/components/widgets/Timezone';
 import { MotionDiv } from '@/lib/framer-motion';
 import {
   GitHubLogoIcon,
@@ -36,41 +37,33 @@ export default function IndexPage() {
           </div>
           <div className="row-[2] col-span-2 lg:row-span-2 lg:col-[2]" />
           <h1 className="self-end p-6 font-serif text-3xl font-bold lg:p-20 lg:text-5xl">
-            <MotionDiv initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              phib.ro
-            </MotionDiv>
+            phib.ro
           </h1>
 
-          <MotionDiv
-            className="self-end"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            <nav>
-              <ul className="p-6 text-right text-sm space-y-2 lg:space-y-1 lg:p-20 pointer-events-auto">
-                <li>
-                  <Link href="#info" className="pl-4 py-2 lg:p-0">
-                    about
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#info" className="pl-4 py-2 lg:p-0">
-                    projects
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#info" className="pl-4 py-2 lg:p-0">
-                    contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/posts" className="pl-4 py-2 lg:p-0">
-                    posts
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </MotionDiv>
+          <nav className="self-end">
+            <ul className="p-6 text-right text-sm space-y-2 lg:space-y-1 lg:p-20 pointer-events-auto">
+              <li>
+                <Link href="#info" className="pl-4 py-2 lg:p-0">
+                  about
+                </Link>
+              </li>
+              <li>
+                <Link href="#info" className="pl-4 py-2 lg:p-0">
+                  projects
+                </Link>
+              </li>
+              <li>
+                <Link href="#info" className="pl-4 py-2 lg:p-0">
+                  contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/posts" className="pl-4 py-2 lg:p-0">
+                  posts
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </header>
       </div>
       <section className="h-[100dvh] transition-all">
@@ -94,7 +87,7 @@ export default function IndexPage() {
             </p>
             <SuspenseErrorBoundary>
               <p className="text-sm" style={{ textWrap: 'pretty' }}>
-                <Weather />
+                <Weather /> <Timezone />
               </p>
             </SuspenseErrorBoundary>
           </div>
