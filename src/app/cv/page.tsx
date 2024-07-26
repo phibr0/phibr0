@@ -1,47 +1,15 @@
-'use client';
+import { readFile } from 'node:fs/promises';
+import { PDF } from './pdf';
 
-import '@ungap/with-resolvers';
-import { useState } from 'react';
-import Turnstile, { useTurnstile } from 'react-turnstile';
-import { Document, Page } from 'react-pdf';
-import { pdfjs } from 'react-pdf';
-import 'react-pdf/dist/Page/TextLayer.css';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
+const FILE = `${process.cwd()}/src/app/cv/cv.pdf`;
 
-pdfjs.GlobalWorkerOptions.workerSrc =
-  typeof window === 'undefined'
-    ? ''
-    : `${window.location.origin}/pdf.worker.min.mjs`;
-
-export default function CVPage() {
-  const [pdf, setPdf] = useState<ArrayBuffer | null>(null);
-  const turnstile = useTurnstile();
-
+export default async function CVPage() {
+  const file = await readFile(FILE);
+  const base64 = Buffer.from(file).toString('base64');
+  const url = `data:application/pdf;base64,${base64}`;
   return (
     <div className="grid place-items-center size-full min-h-screen">
-      {!pdf ? (
-        <Turnstile
-          // biome-ignore lint/style/noNonNullAssertion: needs to be inlined
-          sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_ID!}
-          onVerify={async (token) => {
-            const response = await fetch('/cv/verify', {
-              method: 'POST',
-              body: JSON.stringify({ token }),
-            });
-            if (!response.ok) turnstile.reset();
-            const buffer = await response.arrayBuffer();
-            setPdf(buffer);
-          }}
-        />
-      ) : (
-        <Document
-          file={pdf}
-          className="overflow-clip rounded-md m-4 animate-in"
-          loading={<div />}
-        >
-          <Page pageNumber={1} scale={1.4} />
-        </Document>
-      )}
+      <PDF url={url} />
     </div>
   );
 }
