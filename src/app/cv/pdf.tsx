@@ -16,10 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc =
 
 export const PDF = ({ url }: { url: string }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [{ height, width }, setSize] = useState<{
-    height?: number;
-    width?: number;
-  }>({ height: undefined, width: undefined });
+  const [size, setSize] = useState<{ height?: number; width?: number }>({});
 
   useLayoutEffect(() => {
     const measure = () => {
@@ -31,7 +28,7 @@ export const PDF = ({ url }: { url: string }) => {
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, [ref.current, setSize]);
+  }, []);
 
   return (
     <div className="flex flex-col p-4 md:flex-row justify-center items-end w-full gap-4">
@@ -39,9 +36,9 @@ export const PDF = ({ url }: { url: string }) => {
         <Document
           file={url}
           className="overflow-clip rounded-md"
-          loading={<EmptyPaper width={width} />}
+          loading={<EmptyPaper width={size.width} />}
         >
-          <Page pageNumber={1} width={width} />
+          <Page pageNumber={1} width={size.width} />
         </Document>
       </div>
       <div className="flex lg:flex-col gap-4 items-start">
